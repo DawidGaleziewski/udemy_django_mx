@@ -1,4 +1,4 @@
 Things to refresh:
 - pip
-- pyenv
+- pyenv (https://docs.python.org/3/tutorial/venv.html)
 - modules in python
