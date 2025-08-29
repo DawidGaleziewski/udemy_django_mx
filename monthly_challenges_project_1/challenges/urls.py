@@ -5,5 +5,5 @@ from . import views
 urlpatterns = [
     # django will attempt to convert value to int. And if not possible it will go to next request
     path("<int:month>", views.monthly_challenge_by_number),
-    path("<str:month>", views.monthly_challenge)
+    path("<str:month>", views.monthly_challenge, name="month-challange")
 ]
