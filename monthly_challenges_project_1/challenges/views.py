@@ -1,6 +1,7 @@
 from django.http import HttpResponse, HttpResponseNotFound, HttpResponseRedirect
 from django.shortcuts import render
 from django.urls import reverse
+from django.template.loader import render_to_string
 
 monthly_challenges = {
     "jan": "Eat less carbs!",
@@ -40,8 +41,12 @@ def monthly_challenge_by_number(request, month: int):
 # must be named same as in dynamic route declaration <month>
 def monthly_challenge(request, month: str):
     try:
-        challenge = monthly_challenges[month]
-        response_data = f"<h1>{challenge}</h1>"
-        return HttpResponse(response_data)
+        challenge_text = monthly_challenges[month]
+
+        # we can use render to parse template to string and send response in http response in one go
+        return render(request, "challenges/challenge.html")
+
+        # response_data = render_to_string("challenges/challenge.html")
+        # return HttpResponse(response_data)
     except:
         return HttpResponseNotFound()
