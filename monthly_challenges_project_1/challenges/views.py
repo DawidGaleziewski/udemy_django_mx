@@ -1,4 +1,4 @@
-from django.http import HttpResponse, HttpResponseNotFound, HttpResponseRedirect
+from django.http import HttpResponse, HttpResponseNotFound, Http404, HttpResponseRedirect
 from django.shortcuts import render
 from django.urls import reverse
 from django.template.loader import render_to_string
@@ -42,4 +42,7 @@ def monthly_challenge(request, month: str):
         # response_data = render_to_string("challenges/challenge.html")
         # return HttpResponse(response_data)
     except:
-        return HttpResponseNotFound()
+        # we cant use render here, as we want to send 404 status as well
+        # response_data = render_to_string('404.html')
+        # return HttpResponseNotFound(response_data)
+        raise Http404() # another way to return error page. This will AUTOMATICCALLY find a 404.html and return it

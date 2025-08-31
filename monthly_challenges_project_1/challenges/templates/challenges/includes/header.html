@@ -1,0 +1,8 @@
+<header>
+    <nav>
+        <a href="{% url 'index' %}">All challenges</a>
+    </nav>
+    {% if month_name %}
+        <p>Now on: {{month_name}}</p>
+    {% endif %}
+</header>
