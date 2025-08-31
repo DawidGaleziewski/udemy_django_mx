@@ -6,23 +6,13 @@ from django.template.loader import render_to_string
 monthly_challenges = {
     "jan": "Eat less carbs!",
     "feb": "Run a mile!",
-    "march": "Eat something green!"
+    "march": "Eat something green!",
+    "april": None
 }
 
 def index(request):
-    list_items = ""
     months = list(monthly_challenges.keys())
-    for month in months:
-        capitalized_month = month.capitalize()
-        month_path = reverse("month-challange", args=[month])
-        list_items += f"<li><a href=\"{month_path}\">{capitalized_month}</a></li>"
-    response_data = f"""
-        <ul>
-            {list_items}
-        </ul>
-    """
-    return HttpResponse(response_data)
-
+    return render(request, "challenges/index.html", {"months":  months})
 
 def monthly_challenge_by_number(request, month: int):
     months = list(monthly_challenges.keys())
@@ -44,7 +34,10 @@ def monthly_challenge(request, month: str):
         challenge_text = monthly_challenges[month]
 
         # we can use render to parse template to string and send response in http response in one go
-        return render(request, "challenges/challenge.html")
+        return render(request, "challenges/challenge.html", {
+            "body_text" : challenge_text,
+            "month_name": month,
+        })
 
         # response_data = render_to_string("challenges/challenge.html")
         # return HttpResponse(response_data)
