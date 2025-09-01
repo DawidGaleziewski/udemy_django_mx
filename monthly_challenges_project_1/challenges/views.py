@@ -43,6 +43,6 @@ def monthly_challenge(request, month: str):
         # return HttpResponse(response_data)
     except:
         # we cant use render here, as we want to send 404 status as well
-        # response_data = render_to_string('404.html')
-        # return HttpResponseNotFound(response_data)
-        raise Http404() # another way to return error page. This will AUTOMATICCALLY find a 404.html and return it
+        response_data = render_to_string('404.html')
+        return HttpResponseNotFound(response_data)
+        # raise Http404() # another way to return error page. This will AUTOMATICCALLY find a 404.html and return it
