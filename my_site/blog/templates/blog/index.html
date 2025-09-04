@@ -10,8 +10,8 @@
 {% endblock %}
 
 {% block content %}
-{#{% include "blog/includes/header.html" %}#}
-<ul>
+{% include "includes/header.html" %}
+<ul class="px-5">
     {% for post in posts %}
         <li>
             <a href="{% url 'blog-post' post.id post.slug %}">'{{ post.title }}'</a>
