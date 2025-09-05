@@ -15,7 +15,7 @@ class BlogPost:
 
 
 posts: list[BlogPost] = [
-    BlogPost("Hello World", "This is my first blog post", 1),
+    BlogPost("I love onion", "Humble yet bold, the onion is flavor’s quiet architect. Raw slices add bite; slow sweats melt into sweetness; roasting coaxes caramel depths. Reds brighten salads, yellows anchor soups and sauces, sweets sing on the grill. Cheap, storable, and rich in prebiotic fiber and quercetin, onions deserve a permanent pantry spot. Pro tip: leave the root intact until the end to tame tears. With time and heat, this layered bulb turns simple food into comfort. Peel back a layer, and dinner possibilities multiply.", 1),
     BlogPost("My Second Blog Post", "This is my second blog post", 2),
     BlogPost("My Third Blog Post", "This is my third blog post", 3),
     BlogPost("My Fourth Blog Post", "This is my fourth blog post", 4),
