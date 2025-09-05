@@ -13,7 +13,7 @@
 {% include "includes/header.html" %}
 <ul class="container m-auto rounded-lg bg-gray-800 px-6 py-8 shadow-xl ring ring-gray-900/5">
     {% for post in posts %}
-        <li class="text-2xl mb-2 underline decoration-lime-500 underline-offset-4">
+        <li class="text-2xl mb-2 underline decoration-lime-500 underline-offset-4 decoration-4">
             <a href="{% url 'blog-post' post.id post.slug %}">{{ post.title }}</a>
         </li>
     {% endfor %}

@@ -733,6 +733,10 @@ video {
   text-decoration-style: dotted;
 }
 
+.decoration-4 {
+  text-decoration-thickness: 4px;
+}
+
 .underline-offset-4 {
   text-underline-offset: 4px;
 }
