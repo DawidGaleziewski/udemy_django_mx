@@ -596,40 +596,24 @@ video {
   margin: auto;
 }
 
-.mb-4 {
-  margin-bottom: 1rem;
-}
-
-.mt-2 {
-  margin-top: 0.5rem;
-}
-
-.mt-8 {
-  margin-top: 2rem;
-}
-
-.mt-20 {
-  margin-top: 5rem;
-}
-
-.mt-12 {
-  margin-top: 3rem;
-}
-
-.mb-8 {
-  margin-bottom: 2rem;
+.mb-2 {
+  margin-bottom: 0.5rem;
 }
 
 .mb-3 {
   margin-bottom: 0.75rem;
 }
 
-.mb-2 {
-  margin-bottom: 0.5rem;
+.mb-8 {
+  margin-bottom: 2rem;
 }
 
 .block {
   display: block;
+}
+
+.min-h-screen {
+  min-height: 100vh;
 }
 
 .rounded-lg {
@@ -641,19 +625,9 @@ video {
   background-color: rgb(31 41 55 / var(--tw-bg-opacity, 1));
 }
 
-.bg-indigo-500 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(99 102 241 / var(--tw-bg-opacity, 1));
-}
-
 .bg-gray-900 {
   --tw-bg-opacity: 1;
   background-color: rgb(17 24 39 / var(--tw-bg-opacity, 1));
-}
-
-.px-5 {
-  padding-left: 1.25rem;
-  padding-right: 1.25rem;
 }
 
 .px-6 {
@@ -671,14 +645,8 @@ video {
   padding-bottom: 2rem;
 }
 
-.text-lg {
-  font-size: 1.125rem;
-  line-height: 1.75rem;
-}
-
-.text-sm {
-  font-size: 0.875rem;
-  line-height: 1.25rem;
+.pt-8 {
+  padding-top: 2rem;
 }
 
 .text-2xl {
@@ -686,13 +654,13 @@ video {
   line-height: 2rem;
 }
 
-.font-bold {
-  font-weight: 700;
+.text-lg {
+  font-size: 1.125rem;
+  line-height: 1.75rem;
 }
 
-.text-gray-500 {
-  --tw-text-opacity: 1;
-  color: rgb(107 114 128 / var(--tw-text-opacity, 1));
+.font-bold {
+  font-weight: 700;
 }
 
 .text-gray-400 {
@@ -709,28 +677,8 @@ video {
   text-decoration-line: underline;
 }
 
-.decoration-sky-500 {
-  text-decoration-color: #0ea5e9;
-}
-
 .decoration-lime-500 {
   text-decoration-color: #84cc16;
-}
-
-.decoration-lime-400 {
-  text-decoration-color: #a3e635;
-}
-
-.decoration-lime-600 {
-  text-decoration-color: #65a30d;
-}
-
-.decoration-double {
-  text-decoration-style: double;
-}
-
-.decoration-dotted {
-  text-decoration-style: dotted;
 }
 
 .decoration-4 {
@@ -739,12 +687,6 @@ video {
 
 .underline-offset-4 {
   text-underline-offset: 4px;
-}
-
-.shadow-md {
-  --tw-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
-  --tw-shadow-colored: 0 4px 6px -1px var(--tw-shadow-color), 0 2px 4px -2px var(--tw-shadow-color);
-  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 
 .shadow-xl {
@@ -761,11 +703,4 @@ video {
 
 .ring-gray-900\/5 {
   --tw-ring-color: rgb(17 24 39 / 0.05);
-}
-
-@media (prefers-color-scheme: dark) {
-  .dark\:text-gray-400 {
-    --tw-text-opacity: 1;
-    color: rgb(156 163 175 / var(--tw-text-opacity, 1));
-  }
 }
