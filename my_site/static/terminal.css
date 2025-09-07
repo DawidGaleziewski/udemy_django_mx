@@ -4,18 +4,18 @@ body {
   background: linear-gradient(45deg, #57003f 0%,#f57453 100%);
   font-family: Ubuntu;
 }
-#container {
+.terminal-container {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
 }
-#terminal {
+.terminal {
   width: 70vw;
   height: 65vh;
   box-shadow: 2px 4px 10px rgba(0,0,0,0.5);
 }
-#terminal__bar {
+.terminal__bar {
   display: flex;
   width: 100%;
   height: 30px;
@@ -26,7 +26,7 @@ body {
   border-top-right-radius: 5px;
   background: linear-gradient(#504b45 0%,#3c3b37 100%);
 }
-#bar__buttons {
+.bar__buttons {
   display: flex;
   align-items: center;
 }
@@ -52,36 +52,36 @@ body {
 .bar__button:focus {
   outline: none;
 }
-#bar__button--exit {
+.bar__button--exit {
   background: linear-gradient(#f37458 0%, #de4c12 100%);
   background-clip: padding-box;
 }
-#bar__user {
+.bar__user {
   color: #d5d0ce;
   margin-left: 6px;
   font-size: 14px;
   line-height: 15px;
 }
-#terminal__body {
+.terminal__body {
   background: rgba(56, 4, 40, 0.9);
   font-family: 'Ubuntu Mono';
   height: calc(100% - 30px);
   padding-top: 2px;
   margin-top: -1px;
 }
-#terminal__prompt {
+.terminal__prompt {
   display: flex;
 }
-#terminal__prompt--user {
+.terminal__prompt--user {
   color: #7eda28;
 }
-#terminal__prompt--location {
+.terminal__prompt--location {
   color: #4878c0;
 }
-#terminal__prompt--bling {
+.terminal__prompt--bling {
   color: #dddddd;
 }
-#terminal__prompt--cursor {
+.terminal__prompt--cursor {
   display: block;
   height: 17px;
   width: 8px;
@@ -105,7 +105,7 @@ body {
   }
 }
 @media (max-width: 600px) {
-  #terminal {
+  .terminal {
     max-height: 90%;
     width: 90%;
   }
@@ -114,4 +114,13 @@ body {
 .folder-link {
     color: #77A4D3;
     font-weight: bold;
+}
+
+.folder-link a {
+    display: block;
+}
+
+.folder-link:hover {
+    color: rgba(56, 4, 40, 0.9);
+    background-color: #77A4D3;
 }

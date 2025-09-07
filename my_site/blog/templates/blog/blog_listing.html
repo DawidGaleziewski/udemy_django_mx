@@ -13,36 +13,36 @@
 {% block content %}
 {% include "includes/header.html" %}
 <main class="min-h-screen pt-8">
-<div id="container">
-  <div id="terminal">
-    <!-- Terminal Bar -->
-    <section id="terminal__bar">
-      <div id="bar__buttons">
-        <button class="bar__button" id="bar__button--exit">&#10005;</button>
-        <button class="bar__button">&#9472;</button>
-        <button class="bar__button">&#9723;</button>
-      </div>
-      <p id="bar__user">fobabs@ubuntu: ~</p>
-    </section>
-    <!-- Terminal Body -->
-    <section id="terminal__body">
-      <div id="terminal__prompt">
-        <span id="terminal__prompt--user">Wszystkie posty:</span>
-        <span id="terminal__prompt--location">~</span>
-        <span id="terminal__prompt--bling">$</span>
-        <span id="terminal__prompt--cursor"></span>
-      </div>
+    <div class="terminal-container">
+      <div class="terminal">
+        <!-- Terminal Bar -->
+        <section class="terminal__bar">
+          <div class="bar__buttons">
+            <button class="bar__button bar__button--exit">&#10005;</button>
+            <button class="bar__button">&#9472;</button>
+            <button class="bar__button">&#9723;</button>
+          </div>
+          <p class="bar__user">fobabs@ubuntu: ~</p>
+        </section>
+        <!-- Terminal Body -->
+        <section class="terminal__body">
+          <div class="terminal__prompt">
+            <span class="terminal__prompt--user">Wszystkie posty:</span>
+            <span class="terminal__prompt--location">~</span>
+            <span class="terminal__prompt--bling">$</span>
+            <span class="terminal__prompt--cursor"></span>
+          </div>
 
-    <ul class="px-6 py-8">
-        {% for post in posts %}
-            <li class="folder-link">
-                <a href="{% url 'post-details' post.id post.slug %}">{{ post.title }}</a>
-            </li>
-        {% endfor %}
-    </ul>
-    </section>
-  </div>
-</div>
+        <ul class="px-6 py-8">
+            {% for post in posts %}
+                <li class="folder-link">
+                    <a href="{% url 'post-details' post.id post.slug %}">{{ post.title }}</a>
+                </li>
+            {% endfor %}
+        </ul>
+        </section>
+      </div>
+    </div>
 </main>
 {% include "includes/footer.html" %}
 {% endblock %}
