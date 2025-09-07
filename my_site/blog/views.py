@@ -32,9 +32,11 @@ def post_listing(request):
     return render(request, "blog/blog_listing.html", {"posts": posts})
 
 def post_details(request, id:int,  slug: str):
-    displayed_post = None
-    for post in posts:
-        if post.id == id and post.slug == slug:
-            displayed_post = post
-            break
+    # displayed_post = None
+    # for post in posts:
+    #     if post.id == id and post.slug == slug:
+    #         displayed_post = post
+    #         break
+    # one liner for filtering out single item from list
+    displayed_post = next(post for post in posts if post.id == id and post.slug == slug)
     return render(request, "blog/blog_details.html", {"post": displayed_post})
