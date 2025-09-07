@@ -124,3 +124,8 @@ body {
     color: rgba(56, 4, 40, 0.9);
     background-color: #77A4D3;
 }
+
+.folder-title {
+    background-color: #77A4D3;
+    color: rgba(56, 4, 40, 0.9);
+}

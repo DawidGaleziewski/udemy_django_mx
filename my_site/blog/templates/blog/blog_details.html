@@ -22,17 +22,17 @@
             <button class="bar__button">&#9472;</button>
             <button class="bar__button">&#9723;</button>
           </div>
-          <p class="bar__user">fobabs@ubuntu: ~</p>
+          <p class="bar__user">posted time: {{ post.date }}</p>
         </section>
         <!-- Terminal Body -->
         <section class="terminal__body">
           <div class="terminal__prompt">
-            <span class="terminal__prompt--user">{{ post.title }}</span>
+            <span class="terminal__prompt--user">{{post.author}}</span>
             <span class="terminal__prompt--location">~</span>
             <span class="terminal__prompt--bling">$</span>
             <span class="terminal__prompt--cursor"></span>
           </div>
-
+            <h1 class="folder-title">{{ post.title }}</h1>
         {{ post.content }}
         </section>
       </div>
