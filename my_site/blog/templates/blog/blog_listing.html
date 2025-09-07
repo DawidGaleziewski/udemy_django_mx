@@ -3,6 +3,7 @@
 
 {% block css_files %}
     <link rel="stylesheet" href="{% static "output.css" %}">
+    <link rel="stylesheet" href="{% static "terminal.css" %}">
 {% endblock %}
 
 {% block page_title %}
@@ -12,13 +13,36 @@
 {% block content %}
 {% include "includes/header.html" %}
 <main class="min-h-screen pt-8">
-    <ul class="container m-auto rounded-lg bg-gray-800 px-6 py-8 shadow-xl ring ring-gray-900/5">
+<div id="container">
+  <div id="terminal">
+    <!-- Terminal Bar -->
+    <section id="terminal__bar">
+      <div id="bar__buttons">
+        <button class="bar__button" id="bar__button--exit">&#10005;</button>
+        <button class="bar__button">&#9472;</button>
+        <button class="bar__button">&#9723;</button>
+      </div>
+      <p id="bar__user">fobabs@ubuntu: ~</p>
+    </section>
+    <!-- Terminal Body -->
+    <section id="terminal__body">
+      <div id="terminal__prompt">
+        <span id="terminal__prompt--user">Wszystkie posty:</span>
+        <span id="terminal__prompt--location">~</span>
+        <span id="terminal__prompt--bling">$</span>
+        <span id="terminal__prompt--cursor"></span>
+      </div>
+
+    <ul class="px-6 py-8">
         {% for post in posts %}
-            <li class="text-2xl mb-2 underline decoration-lime-500 underline-offset-4 decoration-4">
+            <li class="folder-link">
                 <a href="{% url 'post-details' post.id post.slug %}">{{ post.title }}</a>
             </li>
         {% endfor %}
     </ul>
+    </section>
+  </div>
+</div>
 </main>
 {% include "includes/footer.html" %}
 {% endblock %}
