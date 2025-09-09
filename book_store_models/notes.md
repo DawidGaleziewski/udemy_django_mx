@@ -47,3 +47,20 @@ Book.objects.all() # gets all saved objects
 
 # migrations on existing data
 if we run migrations, and new data was added, but some data already exists. We will have to choose to eaither provide a one-off default or to add a default in migrations
+
+
+# updating existing data
+
+To update a entry, we simply need to find a object from models and after that we can update any property and save it.
+```python
+hp = Book.objects.all()[0]      
+hp.author = "JK Rowling"
+hp.save()
+```
+# deleting existing data
+
+```python
+hp = Book.objects.all()[0]      
+hp.author = "JK Rowling"
+hp.delete()
+```
