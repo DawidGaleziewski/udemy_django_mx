@@ -64,3 +64,49 @@ hp = Book.objects.all()[0]
 hp.author = "JK Rowling"
 hp.delete()
 ```
+
+# create vs save
+We can create an object and hit database with it instantly
+```python
+ Book.objects.create(title="DBZ", rating=1, author="Kojima")
+``` 
+
+# get a value from DB by values
+
+We can a value by values provided. I.E.
+However this will throw a error if there are multiple values returned
+```python
+Book.objects.get(title="DBZ", author="Kojima")
+```
+
+If we want multiple entires. We can use filter
+```python
+Book.objects.filter(title="DBZ")
+
+## filtering lower then or equal. Django supplied value. Those are called "modifiers"
+ Book.objects.filter(rating__lte=2, title__contains="harry")
+```
+
+
+# more advance queryies using Q
+
+a tool called Q is provided by django to build more advanced queries
+
+```python
+from django.db.models import Q
+
+Book.objects.filter(Q(rating__lt=5) | Q(author="Kojima"))
+
+# this will return a query definition. But will NOT touch the database yet.
+query_1 = Book.objects.filter(Q(rating__lt=5) | Q(author="Kojima"))
+
+## this howaver WILL run the actual query. And it will ALSO cache the result. Therefore next time we run this it won't just hit the db again
+print(query_1)
+
+# this will re-use the results that were cached. It will not hit the db again
+print(query_1)
+
+# this is worth remembering. Because if we do something like this. Database will be hit twice:
+Book.objects.filter(Q(rating__lt=5) | Q(author="Kojima"))
+Book.objects.filter(Q(rating__lt=5) | Q(author="Kojima"))
+```

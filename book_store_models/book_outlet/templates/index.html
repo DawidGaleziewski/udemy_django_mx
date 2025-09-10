@@ -1,0 +1,11 @@
+<div>
+    <h1>Book Store</h1>
+    <p>Welcome to Book Store</p>
+    <p>Here are all books:</p>
+
+    <ul>
+    {% for book in books %}
+        <li>{{ book.title }} by {{ book.author }}</li>
+    {% endfor %}
+    </ul>
+</div>
