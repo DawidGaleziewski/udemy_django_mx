@@ -1,1 +1,8 @@
 <h1>Book: {{ book.title }}</h1>
+<p>Author: {{ book.author }}</p>
+<p>Rating {{ book.rating }}</p>
+{% if book.is_bestseller %}
+    Is a bestseller
+{% else %}
+    But is not a bestseller
+{% endif %}
