@@ -7,11 +7,11 @@ def index(request):
     all_books = Book.objects.all()
     return render(request, "index.html", {"books": all_books})
 
-def book_detail(request, book_id:int):
+def book_detail(request, slug:str):
     # there is also a shortcut for syntax below
     # get_object_or_404()
     try:
-        book = Book.objects.get(id=book_id)
+        book = Book.objects.get(slug=slug)
         return render(request, "book_detail.html", {"book": book})
     except:
         raise Http404("Book does not exist")

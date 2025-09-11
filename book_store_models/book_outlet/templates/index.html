@@ -5,7 +5,8 @@
 
     <ul>
     {% for book in books %}
-        <li><a href="{% url "book-detail" book.id %}">{{ book.title }} by {{ book.author }}</a></li>
+{# book.get_absolute_url can be used to get the absolute url. This value can be overriden in the model declaration #}
+        <li><a href="{{ book.get_absolute_url }}">{{ book.title }} by {{ book.author }}</a></li>
     {% endfor %}
     </ul>
 </div>
