@@ -15,10 +15,12 @@ class Book(models.Model):
     rating = models.IntegerField(validators=[MinValueValidator(1), MaxValueValidator(5)])
     author = models.CharField(max_length=100, null=True)
     is_bestseller = models.BooleanField(default=False)
-    slug = models.SlugField(default="", null=False)
+    # db_index is used for more efficient searching of this value in db. As slug is something we will use all the time to find  books and it functions basically as our id
+    # downside is that creating it with db index requires more time. So wec should only use this param when we need it
+    slug = models.SlugField(default="", null=False, db_index=True)
 
     # this defines how things are stringified for object. Similar to java
-    # if we add a method we dont need to run migration again. Only if we change the structure of the db fsdfsdf sdfsdf sdf sdfsdfsd fsdf sdf sdf sdf sdf sdf sd
+    # if we add a method we dont need to run migration again. Only if we change the structure of the db
     def __str__(self):
         return f"{self.title} - {self.rating} - {self.author}"
 
