@@ -7,13 +7,24 @@ from django.utils.text import slugify
 # Create your models here.
 # define data entities here
 
+class Address(models.Model):
+    street = models.CharField(max_length=100)
+    city = models.CharField(max_length=50)
+    state = models.CharField(max_length=50)
+    zipcode = models.CharField(max_length=10)
+
 # creates new table in db for authors
 class Author(models.Model):
     first_name = models.CharField(max_length=100)
     last_name = models.CharField(max_length=100)
+    # OneToOneField is used for one to one relationship. It points however only to one place
+    address = models.OneToOneField(Address, on_delete=models.CASCADE, null=True)
+
+    def full_name(self):
+        return f"{self.last_name} - {self.first_name}"
 
     def __str__(self):
-        return f"{self.last_name} - {self.first_name}"
+        return self.full_name()
 
 # () is a way to extand a class in python. We extand class Models this way
 class Book(models.Model):
