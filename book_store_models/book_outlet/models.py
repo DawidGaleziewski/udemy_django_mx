@@ -17,6 +17,7 @@ class Book(models.Model):
     is_bestseller = models.BooleanField(default=False)
     # db_index is used for more efficient searching of this value in db. As slug is something we will use all the time to find  books and it functions basically as our id
     # downside is that creating it with db index requires more time. So wec should only use this param when we need it
+    # editable=False will remove the field from django admin
     slug = models.SlugField(default="", null=False, db_index=True)
 
     # this defines how things are stringified for object. Similar to java
