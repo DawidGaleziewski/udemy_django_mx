@@ -7,13 +7,23 @@ from django.utils.text import slugify
 # Create your models here.
 # define data entities here
 
+# creates new table in db for authors
+class Author(models.Model):
+    first_name = models.CharField(max_length=100)
+    last_name = models.CharField(max_length=100)
+
+    def __str__(self):
+        return f"{self.last_name} - {self.first_name}"
+
 # () is a way to extand a class in python. We extand class Models this way
 class Book(models.Model):
     # all oficialy suported field types: https://docs.djangoproject.com/en/5.2/ref/models/fields/
     # id is created automatically for each entry
     title = models.CharField(max_length=100)
     rating = models.IntegerField(validators=[MinValueValidator(1), MaxValueValidator(5)])
-    author = models.CharField(max_length=100, null=True)
+    # adds relation to a different db table.
+    # On delete option like cascade, will delate all books if a author is ever delated
+    author = models.ForeignKey(Author, on_delete=models.CASCADE, null=True)
     is_bestseller = models.BooleanField(default=False)
     # db_index is used for more efficient searching of this value in db. As slug is something we will use all the time to find  books and it functions basically as our id
     # downside is that creating it with db index requires more time. So wec should only use this param when we need it

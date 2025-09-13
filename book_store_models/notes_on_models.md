@@ -110,3 +110,27 @@ print(query_1)
 Book.objects.filter(Q(rating__lt=5) | Q(author="Kojima"))
 Book.objects.filter(Q(rating__lt=5) | Q(author="Kojima"))
 ```
+
+
+# Models relations
+
+```python
+# creates new table in db for authors
+class Author(models.Model):
+    
+class Book(models.Model):
+    author = models.ForeignKey(Author, on_delete=models.CASCADE, null=True)
+```
+
+# quering a table that has relations with other table
+```python
+## __ joins related table
+Book.objects.filter(author__last_name="Rawling")
+```
+
+# inverse relations
+```python
+## this is how we can access books that were written by this authour, despite it not having a field for book
+author = Author.objects.all()[0]
+author.book_set.get()
+```
