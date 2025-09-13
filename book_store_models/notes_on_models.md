@@ -134,3 +134,14 @@ Book.objects.filter(author__last_name="Rawling")
 author = Author.objects.all()[0]
 author.book_set.get()
 ```
+
+# connecting models
+
+We first need to create a table to relete it to another. Otherwise we will get a error
+```python
+px = Address(street="Phenix", city="London", state="Weessex", zipcode="12345")
+px.save()
+
+jk.address = px
+ jk.save()
+```

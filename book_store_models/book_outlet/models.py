@@ -12,6 +12,13 @@ class Address(models.Model):
     city = models.CharField(max_length=50)
     state = models.CharField(max_length=50)
     zipcode = models.CharField(max_length=10)
+    def __str__(self):
+        return f"{self.street}, {self.city}, {self.state} {self.zipcode}"
+
+    # nested classes are a python feature. But django uses them for meta data about the field
+    class Meta:
+        # for example we can handle here how to display our plural form of the class
+        verbose_name_plural = "Addresses"
 
 # creates new table in db for authors
 class Author(models.Model):
