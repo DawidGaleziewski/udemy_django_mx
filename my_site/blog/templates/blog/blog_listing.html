@@ -36,7 +36,7 @@
         <ul class="px-6 py-8">
             {% for post in posts %}
                 <li class="folder-link">
-                    <a href="{% url 'post-details' post.id post.slug %}">{{ post.title }}</a>
+                    <a href="{% url 'post-details' post.slug %}">{{ post.title }}</a>
                 </li>
             {% endfor %}
         </ul>
