@@ -4,6 +4,14 @@ from django.urls import reverse
 from django.utils.text import slugify
 
 
+
+
+class Country(models.Model):
+    name = models.CharField(max_length=100)
+    code = models.CharField(max_length=2)
+    def __str__(self):
+        return self.name
+
 # Create your models here.
 # define data entities here
 
@@ -42,6 +50,8 @@ class Book(models.Model):
     # adds relation to a different db table.
     # On delete option like cascade, will delate all books if a author is ever delated
     author = models.ForeignKey(Author, on_delete=models.CASCADE, null=True)
+    # creating a many to many relationship. For many to many relationship django creates a 3rd table behind the scenes. It creat one row per relation
+    published_in_countries = models.ManyToManyField(Country)
     is_bestseller = models.BooleanField(default=False)
     # db_index is used for more efficient searching of this value in db. As slug is something we will use all the time to find  books and it functions basically as our id
     # downside is that creating it with db index requires more time. So wec should only use this param when we need it

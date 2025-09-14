@@ -1,7 +1,7 @@
 from django.contrib import admin
 
 # Register your models here.
-from .models import Book, Author, Address
+from .models import Book, Author, Address, Country
 
 
 # if we want to modify the admin panel. We can create our own view. Using custome class and by extending ModelAdmin
@@ -20,3 +20,4 @@ class BookAdmin(admin.ModelAdmin):
 admin.site.register(Book, BookAdmin)
 admin.site.register(Author)
 admin.site.register(Address)
+admin.site.register(Country)

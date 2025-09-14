@@ -145,3 +145,15 @@ px.save()
 jk.address = px
  jk.save()
 ```
+
+# many to many relations
+
+```python
+class Country(models.Model):
+    name = models.CharField(max_length=100)
+    code = models.CharField(max_length=2)
+    # creating a many to many relationship. For many to many relationship django creates a 3rd table behind the scenes. It creat one row per relation
+    published_books = models.ManyToManyField(Book)
+    def __str__(self):
+        return self.name
+```
