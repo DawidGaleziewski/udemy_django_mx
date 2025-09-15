@@ -1,3 +1,4 @@
+from django.core.validators import MinLengthValidator
 from django.db import models
 from django.utils.text import slugify
 
@@ -20,7 +21,7 @@ class Tag(models.Model):
 # Create your models here.
 class Post(models.Model):
     title = models.CharField(max_length=250)
-    content = models.TextField()
+    content = models.TextField(validators=[MinLengthValidator(10)])
     slug = models.SlugField(max_length=250, unique=True, null=False, db_index=True)
     updated_on = models.DateTimeField(auto_now=True)
     created_on = models.DateTimeField(auto_now_add=True)

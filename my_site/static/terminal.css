@@ -68,6 +68,8 @@ body {
   height: calc(100% - 30px);
   padding-top: 2px;
   margin-top: -1px;
+    padding-left: 12px;
+    padding-right: 12px;
 }
 .terminal__prompt {
   display: flex;

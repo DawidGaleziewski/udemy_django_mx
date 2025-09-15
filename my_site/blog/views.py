@@ -13,4 +13,4 @@ def post_listing(request):
 
 def post_details(request,  slug: str):
     post = Post.objects.get(slug=slug)
-    return render(request, "blog/blog_details.html", {"post": post})
+    return render(request, "blog/blog_details.html", {"post": post, "authors": post.authors.all() })

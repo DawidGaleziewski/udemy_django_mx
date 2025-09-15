@@ -8,9 +8,13 @@ class PostTagInline(admin.TabularInline):
     verbose_name = "Tag"
     verbose_name_plural = "Tags"
 
+class PostAuthorInline(admin.TabularInline):
+    model = Author.posts.through
+    extra = 1
+
 class PostAdmin(admin.ModelAdmin):
     prepopulated_fields = {"slug": ("title",)}
-    inlines = [PostTagInline]
+    inlines = [PostTagInline, PostAuthorInline]
 
 # Register your models here.
 admin.site.register(Post, PostAdmin)
