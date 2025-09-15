@@ -15,6 +15,10 @@ class PostAuthorInline(admin.TabularInline):
 class PostAdmin(admin.ModelAdmin):
     prepopulated_fields = {"slug": ("title",)}
     inlines = [PostTagInline, PostAuthorInline]
+    list_filter = (
+        "authors",
+        "tags",
+    )
 
 # Register your models here.
 admin.site.register(Post, PostAdmin)

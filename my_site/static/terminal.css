@@ -71,6 +71,11 @@ body {
     padding-left: 12px;
     padding-right: 12px;
 }
+
+.terminal__body::selection {
+    color: rgba(56, 4, 40, 0.9);
+    background-color: #f37458;
+}
 .terminal__prompt {
   display: flex;
 }
