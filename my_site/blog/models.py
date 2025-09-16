@@ -11,6 +11,9 @@ class Author(models.Model):
     def __str__(self):
         return f"{self.first_name} {self.last_name}"
 
+    def get_full_name(self):
+        return f"{self.first_name} {self.last_name}"
+
 class Tag(models.Model):
     name = models.CharField(max_length=100)
     description = models.CharField(max_length=250)
@@ -31,3 +34,13 @@ class Post(models.Model):
     def save(self, *args, **kwargs):
         self.slug = slugify(self.title)
         super().save(*args, **kwargs)
+
+    def get_authors_names(self):
+        author_string = ""
+        authors = self.authors.all()
+        authors_count = authors.count()
+        for index, author in enumerate(authors):
+            author_string += f"{author.get_full_name()}"
+            if index < authors_count - 1:
+                author_string += ", "
+        return author_string

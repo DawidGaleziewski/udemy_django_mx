@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block css_files %}
+    <link rel="stylesheet" href="{% static "output.css" %}">
+    <link rel="stylesheet" href="{% static "terminal.css" %}">
+{% endblock %}
+
+{% block page_title %}
+    All challenges
+{% endblock %}
+
+{% block content %}
+{% include "includes/header.html" %}
+<main class="min-h-screen pt-8">
+<div class="max-w-full flex gap-5">
+    {% for post in posts %}
+    <a class="block" href="{% url 'post-details' post.slug %}">
+      <div class="terminal">
+        <!-- Terminal Bar -->
+        <section class="terminal__bar">
+          <div class="bar__buttons">
+            <button class="bar__button bar__button--exit">&#10005;</button>
+            <button class="bar__button">&#9472;</button>
+            <button class="bar__button">&#9723;</button>
+          </div>
+          <p class="bar__user">fobabs@ubuntu: ~</p>
+        </section>
+        <!-- Terminal Body -->
+        <section class="terminal__body">
+          <div class="terminal__prompt">
+            <span class="terminal__prompt--user">{{ post.get_authors_names }}:</span>
+            <span class="terminal__prompt--location">~</span>
+            <span class="terminal__prompt--bling">$</span>
+            <span class="terminal__prompt--cursor"></span>
+          </div>
+
+            <h2 class="folder-link" href="{% url 'post-details' post.slug %}">{{ post.title }}</h2>
+            <p>{{ post.content|truncatechars:400 }}</p>
+        </section>
+      </div>
+    </a>
+    {% endfor %}
+</div>
+</main>
+{% include "includes/footer.html" %}
+{% endblock %}
