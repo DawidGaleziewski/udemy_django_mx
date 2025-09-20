@@ -5,15 +5,17 @@
     <title>Title</title>
 </head>
 <body>
-    <form>
-        <div>
-            <label for="name">Your name</label>
-            <input id="name" type="text" name="name">
-        </div>
+    <form action="/" method="post">
+        {% csrf_token %}
+<!--        {% if has_error %}-->
+<!--            <p>Invalid form</p>-->
+<!--        {% endif %}-->
 <!--        <div>-->
 <!--            <label for="name">Your name</label>-->
 <!--            <input id="name" type="text" name="name">-->
 <!--        </div>-->
+<!--        Rendering forms created by django constructor-->
+        {{ form }}
         <button type="submit">Submit</button>
     </form>
 </body>
