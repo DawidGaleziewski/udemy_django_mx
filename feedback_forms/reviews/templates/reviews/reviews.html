@@ -15,8 +15,44 @@
 <!--            <input id="name" type="text" name="name">-->
 <!--        </div>-->
 <!--        Rendering forms created by django constructor-->
-        {{ form }}
+
+<!--        We have option to eaither render all form, unchanged, or to customize it-->
+<!--        {{ form }}-->
+<!--        <div>-->
+<!--            {{ form.user.label_tag }}-->
+<!--            {{ form.user }}-->
+<!--            {{ form.user.errors }}-->
+<!--        </div>-->
+<!--        <div>-->
+<!--            {{ form.review.label_tag }}-->
+<!--            {{ form.review }}-->
+<!--            {{ form.review.errors }}-->
+<!--        </div>-->
+<!--        <div>-->
+<!--            {{ form.rating.label_tag }}-->
+<!--            {{ form.rating }}-->
+<!--            {{ form.rating.errors }}-->
+<!--        </div>-->
+
+
+<!--        To avoid redundancy we can just use for loop-->
+
+        {% for field in form %}
+            <div>
+                {{ field.label_tag }}
+                {{ field }}
+                {{ field.errors }}
+            </div>
+        {% endfor %}
         <button type="submit">Submit</button>
     </form>
+
+    <h2>All reviews:</h2>
+    {% for review in reviews %}
+        <li>
+            <h3>{{ review.name }}</h3>
+            <p>{{ review.review }}</p>
+        </li>
+    {% endfor %}
 </body>
 </html>
