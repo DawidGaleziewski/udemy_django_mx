@@ -8,7 +8,7 @@
 <body>
 <ul>
     {% for review in reviews %}
-        <li>{{review.name}}</li>
+        <li><a href="/detail/{{review.id}}">{{review.name}}</a></li>
     {% endfor %}
 </ul>
 </body>
