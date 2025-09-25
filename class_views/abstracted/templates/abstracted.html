@@ -7,6 +7,7 @@
 </head>
 <body>
 <ul>
+<!--    object_list is returned from abstraction class-->
     {% for review in reviews %}
         <li><a href="/detail/{{review.id}}">{{review.name}}</a></li>
     {% endfor %}
