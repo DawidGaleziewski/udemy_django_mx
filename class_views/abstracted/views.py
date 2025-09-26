@@ -3,6 +3,9 @@ from django.views import View
 from django.views.generic.base import TemplateView
 from django.views.generic.list import ListView
 from django.views.generic.detail import DetailView
+from django.views.generic.edit import  FormView
+
+from .forms import ReviewForm
 from .models import Review
 
 # TemplateView allows us to define a template that will be used
@@ -37,3 +40,12 @@ class ReviewListClass(ListView):
         # we could override it here
         # base_queryset.filter(rating__gte=4)
         return base_queryset
+# does everything we would have to do manually. Handles post requests, renders form with its fields and validation
+class EditReview(FormView):
+    form_class = ReviewForm
+    template_name = "edit_review.html"
+    success_url = "/thank-you"
+
+    def form_valid(self, form):
+        form.save()
+        return super().form_valid(form)
