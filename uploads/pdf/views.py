@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.views.generic import CreateView, View
+from django.views.generic import CreateView, View, ListView
 from .models import PDF
 from django.http import HttpResponseRedirect
 from .forms import UploadForm
@@ -29,7 +29,14 @@ class UploadPDF(View):
     # template_name = "pdf/upload.html"
     # fields = "__all__"
 
-
+# simpler implementation with existing CreateView
 class UploadPDF2(CreateView):
     model = PDF
-    template_name = "pdf/upload2.html"
+    template_name = "pdf/upload.html"
+    fields = "__all__"
+    success_url = "/upload"
+
+class PDFList(ListView):
+    model = PDF
+    template_name = "pdf/listing.html"
+    context_object_name = "pdfs"
