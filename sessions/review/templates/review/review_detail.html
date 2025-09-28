@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h1>{{review.name}}</h1>
+    <p>{{review.content}}</p>
+    {% if is_favourite %}
+        <p>This review is a favorite!</p>
+    {% endif %}
+    <form action="{% url 'review-favourite' review.id %}" method="post">
+        {% csrf_token %}
+        <input type="hidden" name="review_id" value="{{ review.id }}">
+        <button type="submit">Favorite</button>
+    </form>
+</body>
+</html>
