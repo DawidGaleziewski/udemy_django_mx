@@ -28,6 +28,7 @@ class Post(models.Model):
     slug = models.SlugField(max_length=250, unique=True, null=False, db_index=True)
     updated_on = models.DateTimeField(auto_now=True)
     created_on = models.DateTimeField(auto_now_add=True)
+    main_image = models.ImageField(upload_to="posts/", null=True)
     def __str__(self):
         return self.title
 
