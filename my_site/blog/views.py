@@ -11,6 +11,7 @@ class PostListing(ListView):
     model = Post
     template_name = "blog/blog_listing.html"
     context_object_name = "posts"
+    ordering = ["-created_on"]
 
 class PostDetails(DetailView):
     model = Post
@@ -21,9 +22,13 @@ class PostDetails(DetailView):
         context["authors"] = self.object.authors.all()
         return context
 
-class PostHome(TemplateView):
+class PostHome(ListView):
     template_name = "blog/blog_home.html"
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context["posts"] = Post.objects.all().order_by("-created_on")[:3]
-        return context
+    model = Post
+    context_object_name = "posts"
+    ordering = ["-created_on"]
+
+    def get_queryset(self):
+        queryset = super().get_queryset()
+        data = queryset[:3]
+        return data
