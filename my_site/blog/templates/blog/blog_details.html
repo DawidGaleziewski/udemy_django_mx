@@ -46,6 +46,19 @@
         </section>
       </div>
     </div>
+        <form action="{% url 'post-details' post.slug %}" method="post">
+            {% csrf_token %}
+            {{ comment_form }}
+            <button type="submit">Submit</button>
+        </form>
+
+        <ul>
+            {% for comment in comments %}
+            <li>
+                {{ comment.content }}
+            </li>
+            {% endfor %}
+        </ul>
 </main>
     {% include "includes/footer.html" %}
 {% endblock %}

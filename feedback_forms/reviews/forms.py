@@ -1,5 +1,6 @@
 from django import forms
 from .models import Review
+
 # defines the shape of the form. We just need to extand the clas with form
 class ReviewForm(forms.Form):
     # similar to model definition

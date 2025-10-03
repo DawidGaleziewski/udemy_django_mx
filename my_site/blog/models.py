@@ -45,3 +45,11 @@ class Post(models.Model):
             if index < authors_count - 1:
                 author_string += ", "
         return author_string
+
+
+class Comment(models.Model):
+    user_name = models.CharField(max_length=100)
+    email = models.EmailField()
+    content = models.TextField()
+    post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name="comments")
+    created_on = models.DateTimeField(auto_now_add=True)
